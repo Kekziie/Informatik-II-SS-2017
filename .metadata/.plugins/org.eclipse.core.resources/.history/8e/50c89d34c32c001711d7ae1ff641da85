@@ -5,31 +5,31 @@ public class Calculator {
 
 	
 	public static double add(double a, double b){
-		double result = a+b;
+		double result = 0;
 		//a)
 		return result;
 	}
 	
 	public static double minus(double a, double b){
-		double result = a-b;
+		double result = 0;
 		//b)
 		return result;
 	}
 	
 	public static double multiply(double a, double b){
-		double result = a*b;
+		double result = 0;
 		//c)
 		return result;
 	}
 	
 	public static double divide(double a, double b){
-		double result = a/b;
+		double result = 0;
 		//d)
 		return result;
 	}
 	
 	public static double numericalDissipation(double x){
-		double result = (f(x+h)-f(x-h))/2*h;
+		double result = 0;
 		double h = 0.00001;
 		//e)
 		return result;
