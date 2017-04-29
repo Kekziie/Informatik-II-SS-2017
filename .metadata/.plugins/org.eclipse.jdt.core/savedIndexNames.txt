@@ -1,5 +1,4 @@
 INDEX VERSION 1.129+/Users/Kim/Documents/github/repos/Informatik-II-SS2017/.metadata/.plugins/org.eclipse.jdt.core
-1378332264.index
 518397319.index
 3969190818.index
 1260736551.index
