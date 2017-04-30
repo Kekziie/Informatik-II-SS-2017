@@ -5,62 +5,47 @@ public class Calculator {
 
 	
 	public static double add(double a, double b){
-		double result = 0;
+		double result = a+b;
 		//a)
-		result = a+b;
 		return result;
 	}
 	
 	public static double minus(double a, double b){
-		double result = 0;
+		double result = a-b;
 		//b)
-		result = a-b;
 		return result;
 	}
 	
 	public static double multiply(double a, double b){
-		double result = 0;
+		double result = a*b;
 		//c)
-		result = a*b;
 		return result;
 	}
 	
 	public static double divide(double a, double b){
 		double result = 0;
-		//d)
 		if(b==0) result=-1;
 		else result=a/b
+		//d)
 		return result;
 	}
 	
 	public static double numericalDissipation(double x){
-		double result = 0;
+		double result = (f(x+h)-f(x-h))/2*h;
 		double h = 0.00001;
 		//e)
-		result= ((Math.log((x+h)))-(Math.log((x-h))))/(2*h)
 		return result;
 	}
 	
 	public static int ggT(int a, int b){
 		int result = 0;
 		//f)
-		a=Math.abs(a);
-		b=Math.abs(b);
-		if (a!=0 && b!=0)
-			while (a!=b)
-			{
-				if (a>b) a=a-b;
-				else b=b-a
-			}
-		else if (a==0) a=b;
-		result = a;
 		return result;
 	}
 	
 	public static int kgV(int a, int b){
 		int result = 0;
 		//g)
-		result = Math.abs((a*b))/(ggT(a,b));
 		return result;
 	}
 	
