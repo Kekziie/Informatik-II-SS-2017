@@ -29,7 +29,7 @@ public class Calculator {
 		double result = 0;
 		//d)
 		if(b==0) result=-1;
-		else result=a/b;
+		else result=a/b
 		return result;
 	}
 	
@@ -37,7 +37,7 @@ public class Calculator {
 		double result = 0;
 		double h = 0.00001;
 		//e)
-		result= ((Math.log((x+h)))-(Math.log((x-h))))/(2*h);
+		result= ((Math.log((x+h)))-(Math.log((x-h))))/(2*h)
 		return result;
 	}
 	
@@ -50,7 +50,7 @@ public class Calculator {
 			while (a!=b)
 			{
 				if (a>b) a=a-b;
-				else b=b-a;
+				else b=b-a
 			}
 		else if (a==0) a=b;
 		result = a;
