@@ -1,3 +1,9 @@
 # Informatik-II-SS-2017
 
-Java
+Programieraufgaben in Java
+- MeinErsteJavaProject
+  - Src/Main
+    * Hello
+    * Calculator
+    * Optimize
+    * NaiveSorting
