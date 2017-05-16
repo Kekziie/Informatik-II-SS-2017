@@ -1,0 +1,11 @@
+package main;
+
+public class Paperworks {
+	
+
+	   int x = 5;
+       if (x > 1 || x < 10) {
+       x += 3;
+       } else {
+       x -= 2;
+       }

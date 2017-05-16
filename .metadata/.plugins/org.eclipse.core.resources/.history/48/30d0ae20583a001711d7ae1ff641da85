@@ -1,0 +1,17 @@
+package main;
+
+public class Paperworks {
+	
+
+        public static void main(String[] args) {
+        int i;
+        {
+        i = 3;
+        int j = 4;
+        }
+
+       i = j;
+       System.out.println(i);
+       }
+
+	}

@@ -1,0 +1,17 @@
+package main;
+
+public class Paperworks {
+	
+
+	public static void main(String[] args) {
+		int x = 10;
+        if (x > 10) {
+        if (x < 10) {
+        x = 1;
+        }
+        } else {
+        x = -1;
+        }
+	        System.out.println(x);
+	}
+	}

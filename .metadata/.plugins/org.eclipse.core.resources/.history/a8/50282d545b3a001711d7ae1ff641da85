@@ -1,0 +1,15 @@
+package main;
+
+public class Paperworks {
+	
+
+	public static void main(String[] args) {
+		 int index = 8;
+	        int sum = 0;
+	        while (index >= 4) {
+	        index -= 2;
+	        sum += index;
+	        }
+	        System.out.println(sum);
+	}
+	}
