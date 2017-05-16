@@ -35,8 +35,8 @@ public class NaiveSorting {
 		int min = array[0];
 		if (array.length == 0)
 			return -1;
-		else for (int i = 0, i <= array.length -1 , i++) {
-			if (array[i] < min)
+		else for (int i=0, i <= array.length -1 , i++) {
+			if (array[i]<min)
 			{
 				min=array[i];
 			}
@@ -52,16 +52,7 @@ public class NaiveSorting {
 	 */
 	public static int getMaximum(int[] array) {	
 		// TODO a)
-		int max = array[0];
-		if (array.length == 0)
-			return -1;
-		else for (int i = 0, i <= array.length -1 , i++) {
-			if (array[i] < max)
-			{
-				max=array[i];
-			}
-		}
-		return max; // return the determined value!		
+		return 0; // return the determined value!		
 	}
 
 	/**
