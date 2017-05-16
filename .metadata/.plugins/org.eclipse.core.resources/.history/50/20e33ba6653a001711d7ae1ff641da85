@@ -74,10 +74,9 @@ public class NaiveSorting {
 		double mean = 0;
 		if (array.length == 0)
 			return -1;
-		else for (int i = 0; i <= array.length - 1; i++) {
-			mean = (mean + array[i]);
+		else for (int i = 0; i <= array.length; i++) {
+			mean = (mean + array[i]) / 2;
 		}
-		mean = mean / array.length;
 		return mean; // return the determined value!		
 	}
 

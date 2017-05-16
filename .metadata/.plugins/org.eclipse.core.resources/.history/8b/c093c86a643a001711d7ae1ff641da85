@@ -6,15 +6,16 @@ public class NaiveSorting {
 
 	public static void main(String[] args) {
 		// TODO: you can test your solution like this:
-		int[] myArray = new int[10];
-		for(int i=0; i<myArray.length; i++)
-			myArray[i] = (int)(Math.random()*100);
+		
+//		int[] myArray = new int[10];
+//		for(int i=0; i<myArray.length; i++)
+//			myArray[i] = (int)(Math.random()*100);
 //		
-		System.out.println("Testing array:" + Arrays.toString(myArray));
+//		System.out.println("Testing array:" + Arrays.toString(myArray));
 //				
-		System.out.println("Minimum: "+getMinimum(myArray));
-		System.out.println("Maximum: "+getMaximum(myArray));
-		System.out.println("Mean: "+getMean(myArray));
+//		System.out.println("Minimum: "+getMinimum(myArray));
+//		System.out.println("Maximum: "+getMaximum(myArray));
+//		System.out.println("Mean: "+getMean(myArray));
 //		
 //		System.out.println(getArrayString(myArray,3));
 //		
@@ -34,7 +35,7 @@ public class NaiveSorting {
 		int min = array[0];
 		if (array.length == 0)
 			return -1;
-		else for (int i = 0; i <= array.length -1; i++) {
+		else for (int i = 0, i <= array.length -1 , i++) {
 			if (array[i] < min)
 			{
 				min=array[i];
@@ -54,8 +55,8 @@ public class NaiveSorting {
 		int max = array[0];
 		if (array.length == 0)
 			return -1;
-		else for (int i = 0; i <= array.length -1; i++) {
-			if (array[i] > max)
+		else for (int i = 0, i <= array.length -1 , i++) {
+			if (array[i] < max)
 			{
 				max=array[i];
 			}
@@ -71,13 +72,12 @@ public class NaiveSorting {
 	 */
 	public static double getMean(int[] array) {	
 		// TODO b)
-		double mean = 0;
+		int mean = array[0];
 		if (array.length == 0)
 			return -1;
-		else for (int i = 0; i <= array.length - 1; i++) {
-			mean = (mean + array[i]);
+		else for (int i = 0, i <= array.length , i++) {
+			
 		}
-		mean = mean / array.length;
 		return mean; // return the determined value!		
 	}
 
@@ -85,14 +85,8 @@ public class NaiveSorting {
 	 * Sorts the array in increasing order.
 	 */
 	public static void sortArray(int[] array) {
+
 		// TODO c)
-		if (array.length <= 0)
-			return;
-		int[] sorted = new int [array.length];
-		for (int i = 0; i < sorted.length; i++) {
-			sorted[i] = getMinimum(array);
-			array[getMinimumIndex(array)] = Integer.MAX_VALUE;
-		}
 	}
 
 	/**
