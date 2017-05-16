@@ -9,18 +9,18 @@ public class NaiveSorting {
 		int[] myArray = new int[10];
 		for(int i=0; i<myArray.length; i++)
 			myArray[i] = (int)(Math.random()*100);
-		
+//		
 		System.out.println("Testing array:" + Arrays.toString(myArray));
-				
+//				
 		System.out.println("Minimum: "+getMinimum(myArray));
 		System.out.println("Maximum: "+getMaximum(myArray));
 		System.out.println("Mean: "+getMean(myArray));
-	
-		System.out.println(getArrayString(myArray,3));
-		
-		sortArray(myArray);
-		
-		System.out.println(getArrayString(myArray, 5));
+//		
+//		System.out.println(getArrayString(myArray,3));
+//		
+//		sortArray(myArray);
+//		
+//		System.out.println(getArrayString(myArray, 5));
 	}
 
 	/**
@@ -119,6 +119,7 @@ public class NaiveSorting {
 		}
 		return a; // return the generated String here.
 	}
+
 
 }
 

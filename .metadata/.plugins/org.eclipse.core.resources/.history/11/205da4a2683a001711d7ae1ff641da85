@@ -9,18 +9,18 @@ public class NaiveSorting {
 		int[] myArray = new int[10];
 		for(int i=0; i<myArray.length; i++)
 			myArray[i] = (int)(Math.random()*100);
-		
+//		
 		System.out.println("Testing array:" + Arrays.toString(myArray));
-				
+//				
 		System.out.println("Minimum: "+getMinimum(myArray));
 		System.out.println("Maximum: "+getMaximum(myArray));
 		System.out.println("Mean: "+getMean(myArray));
-	
-		System.out.println(getArrayString(myArray,3));
-		
-		sortArray(myArray);
-		
-		System.out.println(getArrayString(myArray, 5));
+//		
+//		System.out.println(getArrayString(myArray,3));
+//		
+//		sortArray(myArray);
+//		
+//		System.out.println(getArrayString(myArray, 5));
 	}
 
 	/**
@@ -105,20 +105,11 @@ public class NaiveSorting {
 	 * @return the string representation.
 	 */
 	public static String getArrayString(int[] array, int numPerLine) {
-		// TODO d)
-		String a = "";
-		for (int i = 0; i < array.length; i++) {
-			if (i != array.length - 1)
-			{ if ((i+1) % numPerLine == 0)
-				a = a + array[i] + "\n";
-			else
-				a = a + array[i] + "\t";
-			}
-			else
-				a = a + array[i];
-		}
-		return a; // return the generated String here.
+
+		// TODO d
+		return ""; // return the generated String here.
 	}
+
 
 }
 
