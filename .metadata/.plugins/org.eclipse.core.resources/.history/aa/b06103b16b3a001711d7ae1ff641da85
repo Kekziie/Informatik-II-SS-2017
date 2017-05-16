@@ -40,11 +40,10 @@ public class NaiveSorting {
 			{
 				min=array[i];
 			}
-			
+			}
 		}
 			
 		return min; // return the determined value!		
-	}
 	}
 
 	/**

@@ -24,30 +24,6 @@ public class NaiveSorting {
 	}
 
 	/**
-	 * Gets the minimum value in the array and return its value.
-	 * 
-	 * @param array
-	 * @return the minimum
-	 */
-	public static int getMinimum(int[] array) {	
-		// TODO a)
-		if (array.length == 0)
-			return -1;
-		else {
-			int min = array[0];
-			for (int i = 0; i <= array.length -1; i++) {
-			if (array[i] < min)
-			{
-				min=array[i];
-			}
-			
-		}
-			
-		return min; // return the determined value!		
-	}
-	}
-
-	/**
 	 * Get the maximum value in the array and return its value.
 	 * 
 	 * @param array
@@ -66,7 +42,27 @@ public class NaiveSorting {
 		}
 		return max; // return the determined value!		
 	}
+	
 
+	/**
+	 * Gets the minimum value in the array and return its value.
+	 * 
+	 * @param array
+	 * @return the minimum
+	 */
+	public static int getMinimum(int[] array) {	
+		// TODO a)
+		int min = max;
+		if (array.length == 0)
+			return -1;
+		else for (int i = 0; i <= array.length -1; i++) {
+			if (array[i] < min)
+			{
+				min=array[i];
+			}
+		}
+		return min; // return the determined value!		
+	}
 	/**
 	 * Gets the mean value in the array and return its value.
 	 * 
