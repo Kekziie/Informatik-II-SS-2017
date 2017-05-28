@@ -38,16 +38,16 @@ public class BlackJack {
 					System.out.println("The bank's cardvalue is :" + cardValueBank);
 				} while(cardValueBank < cardValuePlayer && cardValueBank < 17);
 			}
-			String winner = evaluateWinner(cardValuePlayer, cardValueBank);
+			String winner = evaluateWinner(cardPlayer, cardValueBank);
 			switch(winner) {
 			case "player":
-				System.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank);
+				Sytem.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank);
 				break;
-			case "bank":
-			    System.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank);
+			case "bank"
+			    Sytem.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank);
 			    break;
-			case "both":
-		    System.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank);
+			case "both"
+		    Sytem.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank);
 		    break;    
 			}
 			currentBalance = updateMoney(currentBalance, bet, winner);
@@ -63,51 +63,23 @@ public class BlackJack {
 				System.out.println("Gambling is addictive. You should have stopped when you won. You are now in debt!");
 				System.exit(0);
 			}
-		
 		}
 
 	}
-	
-	public static int giveCard() {
-		return (int)(Math.random() * 11 + 1);
-	}
-	
-	public static boolean oneMoreCard() {
-		Scanner s = new Scanner(System.in);
-		System.out.println("Card?");
-		return (Character.toLowerCase(s.next().charAt(0)) == 'y');
+
+
+	private static String evaluateWinner(int cardValuePlayer, int cardValueBank) {
+
+		return "String"; //TODO: "String" durch den Sieger ersetzen (siehe Übungsblatt)
 	}
 
-	public static String evaluateWinner(int cardValuePlayer, int cardValueBank) {
+	private static int updateMoney(int currentBalance, int bet, String winner) {
 
-		if (cardValuePlayer > 21)
-			return "bank";
-		else if (cardValueBank > 21)
-			return "player";
-		else if (Math.abs(21-cardValuePlayer)>(Math.abs(21-cardValueBank)))
-			return "bank";
-		else if (Math.abs(21-cardValuePlayer)<(Math.abs(21-cardValueBank)))
-			return "player";
-		else return "both";
+		return 0; //TODO: Hier den Wert des aktualisierten Kontostandes zurückgeben
 	}
 
-	public static int updateMoney(int currentBalance, int bet, String winner) {
-		
-		switch(winner) {
-		case "player":
-			return currentBalance + 2 * bet;
-		case "bank":
-			return currentBalance;
-		case "both":
-			return currentBalance + bet; 
-			
-		}
-	}
 
 }
-
-
-
 
 
 

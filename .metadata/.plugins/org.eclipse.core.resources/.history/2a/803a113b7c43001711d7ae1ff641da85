@@ -38,16 +38,16 @@ public class BlackJack {
 					System.out.println("The bank's cardvalue is :" + cardValueBank);
 				} while(cardValueBank < cardValuePlayer && cardValueBank < 17);
 			}
-			String winner = evaluateWinner(cardValuePlayer, cardValueBank);
+			String winner = evaluateWinner(cardPlayer, cardValueBank);
 			switch(winner) {
 			case "player":
-				System.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank);
+				Sytem.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank);
 				break;
-			case "bank":
-			    System.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank);
+			case "bank"
+			    Sytem.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank);
 			    break;
-			case "both":
-		    System.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank);
+			case "both"
+		    Sytem.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank);
 		    break;    
 			}
 			currentBalance = updateMoney(currentBalance, bet, winner);
@@ -104,10 +104,10 @@ public class BlackJack {
 		}
 	}
 
+	}
+
+
 }
-
-
-
 
 
 
