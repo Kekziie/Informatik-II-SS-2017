@@ -19,57 +19,46 @@ public class BlackJack {
 
 		while(true) {
 			Scanner s = new Scanner(System.in);
-			// setzt die Werte auf Null
 			cardValuePlayer = 0;
 			cardValueBank = 0;
 			do {
-				// zeigt aktuellen Wert und fragt nach dem Einsatz
 				System.out.print("Your amount is " + currentBalance + "$. Please place your bet: ");
-				// gespeicherter Input
 				bet = s.nextInt();
-				// c) abfangen der Fälle bei ungültigen Beträgen
 				if (bet <= 0 || bet > currentBalance)
 					System.out.println("Illegal bet");
 			} while (bet <= 0 || bet > currentBalance);
 			currentBalance -=bet;
-			// Schleife für die Kartenziehphase
 			do {
 				cardValuePlayer += giveCard();
 				System.out.println("Your cardvalue is: " + cardValuePlayer);
 			} while (cardValuePlayer <21 && oneMoreCard());
 			if (cardValuePlayer < 21) {
 				do {
-					// zieht Karte
 					cardValueBank += giveCard();
-					// gibt neuen Wert an
 					System.out.println("The bank's cardvalue is :" + cardValueBank);
 				} while(cardValueBank < cardValuePlayer && cardValueBank < 17);
 			}
-			// gibt Gewinner an
 			String winner = evaluateWinner(cardValuePlayer, cardValueBank);
 			switch(winner) {
 			case "player":
-				System.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank + ")");
+				System.out.println("You won!" + "(" + cardValuePlayer + " / " + cardValueBank);
 				break;
 			case "bank":
-			    System.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank + ")");
+			    System.out.println("You lost!" + "(" + cardValuePlayer + " / " + cardValueBank);
 			    break;
 			case "both":
-		    System.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank + ")");
+		    System.out.println("Tied!" + "(" + cardValuePlayer + " / " + cardValueBank);
 		    break;    
 			}
 			currentBalance = updateMoney(currentBalance, bet, winner);
-			// fragt nach der nächsten Runde
 			System.out.println("Are you ready for the next round?");
 			if (Character.toLowerCase(s.next().charAt(0)) != 'y') {
 				System.out.println("Your final balance was: " + currentBalance + "$");
 				System.exit(0);
 			}
-			// Spieler hat kein Geld mehr übrig
 			if (currentBalance == 0) {
 				System.out.println("You have no cash anymore");
 				System.exit(0);
-			// Spieler hat Schulden	
 			} else if (currentBalance < 0) {
 				System.out.println("Gambling is addictive. You should have stopped when you won. You are now in debt!");
 				System.exit(0);
@@ -79,19 +68,16 @@ public class BlackJack {
 
 	}
 	
-	// d) zufällige Karte zwischen 1 und 11
 	public static int giveCard() {
 		return (int)(Math.random() * 11 + 1);
 	}
 	
-	// e) Abfrage, ob eine weiter Karte gezogen werden soll
 	public static boolean oneMoreCard() {
 		Scanner s = new Scanner(System.in);
 		System.out.println("Card?");
 		return (Character.toLowerCase(s.next().charAt(0)) == 'y');
 	}
 
-	// f) gibt Gewinner als String zurück
 	public static String evaluateWinner(int cardValuePlayer, int cardValueBank) {
 
 		if (cardValuePlayer > 21)
@@ -104,8 +90,7 @@ public class BlackJack {
 			return "player";
 		else return "both";
 	}
-	
-    // g) gibt Wert des aktuellen Kontostandes zurück
+
 	public static int updateMoney(int currentBalance, int bet, String winner) {
 		
 		switch(winner) {
@@ -113,7 +98,7 @@ public class BlackJack {
 			return currentBalance + 2 * bet;
 		case "bank":
 			return currentBalance;
-		default:
+		case "both":
 			return currentBalance + bet; 
 			
 		}
