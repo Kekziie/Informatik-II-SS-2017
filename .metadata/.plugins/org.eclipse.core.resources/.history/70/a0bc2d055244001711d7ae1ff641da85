@@ -21,12 +21,12 @@ public class MySnakeGame extends JPanel implements KeyListener{
 * The colors that are supported by the game.
 */
 	
-	public static Color snakeHead     = new Color(250,10,0);    // rot
-	public static Color snakeBody     = new Color(128,0,0);     // dunkelrot
-	public static Color bgColor       = new Color(0,150,230);   // hellblau
-	public static Color foodColor     = new Color(0,128,0);     // dunkelgruen
+	public static Color snakeHead = new Color(250,10,0);        // rot
+	public static Color snakeBody = new Color(128,0,0);         // dunkelrot
+	public static Color bgColor = new Color(0,150,230);         // hellblau
+	public static Color foodColor = new Color(0,128,0);         // dunkelgruen
 	public static Color goldFoodColor = new Color(255, 215, 0); // gold
-	public static Color borderColor   = new Color(0, 0, 0);     // schwarz
+	public static Color borderColor = new Color(0, 0, 0);       // schwarz
 
 /**
 * Groesse des Fensters, in dem das Spiel stattfindet.
@@ -293,9 +293,9 @@ if(stillAlive && snakeLength>=MAX_Length) {
 private static int [][] expandSnake(int[][]oldSnake, int snakeIndex, int newSnakeLength){
 	for(int i=oldSnake.length; i<snakeLength; i++) {
 		snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] = 
-				snakeLoc[(snakeLoc.length+snakeIndex-oldSnake.length+1)%snakeLoc.length][0];
+				snakeLoc[(snakeLoc.length+snakeIndexoldSnake.length+1)%snakeLoc.length][0];
 				snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][1] =
-				snakeLoc[(snakeLoc.length+snakeIndex-oldSnake.length+1)%snakeLoc.length][1];
+				snakeLoc[(snakeLoc.length+snakeIndexoldSnake.length+1)%snakeLoc.length][1];
 				
 	}
     return snakeLoc;

@@ -16,82 +16,67 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 
 public class MySnakeGame extends JPanel implements KeyListener{
-	
 /**
 * The colors that are supported by the game.
 */
-	
-	public static Color snakeHead     = new Color(250,10,0);    // rot
-	public static Color snakeBody     = new Color(128,0,0);     // dunkelrot
-	public static Color bgColor       = new Color(0,150,230);   // hellblau
-	public static Color foodColor     = new Color(0,128,0);     // dunkelgruen
-	public static Color goldFoodColor = new Color(255, 215, 0); // gold
-	public static Color borderColor   = new Color(0, 0, 0);     // schwarz
+public static Color snakeHead = new Color(250,10,0);        // rot
+public static Color snakeBody = new Color(128,0,0);         // dunkelrot
+public static Color bgColor = new Color(0,150,230);         // hellblau
+public static Color foodColor = new Color(0,128,0);         // dunkelgruen
+public static Color goldFoodColor = new Color(255, 215, 0); // gold
+public static Color borderColor = new Color(0, 0, 0);       // schwarz
 
 /**
 * Groesse des Fensters, in dem das Spiel stattfindet.
 */
-	private static final int FRAME_WIDTH = 600, FRAME_HEIGHT = 500;
-
+private static final int FRAME_WIDTH = 600, FRAME_HEIGHT = 500;
 /**
 * Groesse der Game area, in dem das Spiel stattfindet (in pixel).
 */
-	private static int panelWidth, panelHeight;
-	
+private static int panelWidth, panelHeight;
 /**
 * Lokation der Game Area im Panel (von links, in pixel).
 */
-	private static int gameAreaLeft;
-	
+private static int gameAreaLeft;
 /**
 * Lokation der Game Area im Panel (von oben, in pixel).
 */
-	private static int gameAreaTop;
-	
+private static int gameAreaTop;
 /**
 * Breite der Game Area (in pixel).
 */
-	private static int gameAreaWidth;
-	
+private static int gameAreaWidth;
 /**
 * Hoehe der Game Area (in pixel).
 */
-	private static int gameAreaHeight;
-	
+private static int gameAreaHeight;
 /**
 * Groesse des Spielfeldes als Grid (Matrix)
 * Anzahl Reihen.
 */
-	public static int numRows;
-	
+public static int numRows;
 /**
 * Groesse des Spielfeldes als Grid (Matrix)
 * Anzahl Spalten.
 */
-	public static int numColumns;
-	
+public static int numColumns;
 /**
 * The Location of the Snake (in der Matrix)
 */
-	private static int[][] snakeLoc;
-	
-	//Length of the Snake
-	private static int snakeLength=10;
-	
-	//Index of the Snake
-	private static int snakeIndex=0;
-	
-	//Max_Length of Snake before winning the game
-	private static int MAX_Length=42;
-	
+private static int[][] snakeLoc;
+//Length of the Snake
+private static int snakeLength=10;
+//Index of the Snake
+private static int snakeIndex=0;
+//Max_Length of Snake before winning the game
+private static int MAX_Length=35;
 /**
 * The direction towards which the snake is heading.
 * Note: the snake is always moving!
 * Konvention hier: 0 := North (nach oben); 1 := East (nach rechts);
 * 2 := South (nach unten); 3 := West (nach links)
 */
-	private static int snakeDirection = 0;
-	
+private static int snakeDirection = 0;
 /**
 * In lastSnakeDirection sollte der letzte Richtungsschritt stehen,
 * den die Schlange auch aufgefuehrt hat.
@@ -99,85 +84,77 @@ public class MySnakeGame extends JPanel implements KeyListener{
 * wechselt... und dadurch insbesondere auch in sich selbst laufen kann
 * (was verhindert werden soll).
 */
-	private static int lastSnakeDirection = snakeDirection;
-	
+private static int lastSnakeDirection = snakeDirection;
 /**
 * The Location of the Food item (in der Matrix als 2-elementiger Array)
 */
-	private static int[] foodLoc;
-	
-	// überprüft, ob Essen vergoldet
-	private static boolean FoodIsGold = false;
-	
-	// Wahrscheinlichkeit für Goldesspunkt
-	private final static double Food_gold = .25;
-	
+private static int[] foodLoc;
+//boolean to check, if food is gold
+private static boolean FoodIsGold = false;
+//Probability for a golden Food
+private final static double Food_gold = .25;
 /**
 * Number of iterations played in the game.
 */
-	public static int iteration = 0;
-	
+public static int iteration = 0;
 /**
 * Number of food items that were eaten.
 */
-	private static int foodEaten = 0;
-	
+private static int foodEaten = 0;
 /**
 * Size of a tile - and thus also of one snake body part.
 */
-	private static final int TILE_SIZE = 15;
-	
+private static final int TILE_SIZE = 15;
 /**
 * Statisches Spiel-Objekt, das in der main Methode kreiert wird.
 */
-	private static MySnakeGame mySnakeGame = null;
-	
+private static MySnakeGame mySnakeGame = null;
 /**
 * The frequency of a move - every gameSpeed Milliseconds, the snake moves a step.
 */
-	private static long gameSpeed = 100;
-	
+private static long gameSpeed = 100;
 /**
 * The main class to start this game.
 *
 * @param args Arguments are not considered here.
 * @throws InterruptedException
 */
-	public static void main(String[] args) throws InterruptedException {
-		
-	// generieren des Fensters in dem Spiel stattfindet
-	JFrame frame = new JFrame("My Snake Game");
-	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
-	frame.setLocationRelativeTo(null);
-	frame.setResizable(false);
-	frame.setVisible(true);
+public static void main(String[] args) throws InterruptedException {
+	
+// generieren des Fensters in dem Spiel stattfindet
+	
+JFrame frame = new JFrame("My Snake Game");
+frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+frame.setLocationRelativeTo(null);
+frame.setResizable(false);
+frame.setVisible(true);
 
 // Der kleinere Spielbereich im gesamtem Fenster wird eingerichtet
 
-	panelWidth = frame.getContentPane().getWidth();
-	panelHeight = frame.getContentPane().getHeight();
+panelWidth = frame.getContentPane().getWidth();
+panelHeight = frame.getContentPane().getHeight();
 
 // Spielbereich erstellen und ins Fenster einfuegen.
 
-	mySnakeGame = MySnakeGame.initFullSnakeGamePanel();
-	frame.add(mySnakeGame);
+mySnakeGame = MySnakeGame.initFullSnakeGamePanel();
+frame.add(mySnakeGame);
 
 // Fenster soll auf Aktionen des Keyboards "hoeren"
 // Fenster aktiviert, wenn man eine Taste drueckt
 // die Methode (siehe deren Implementierung weiter unten) KeyTyped(...) aufgerufen.
 
-	frame.addKeyListener(mySnakeGame);
+frame.addKeyListener(mySnakeGame);
 
-	frame.validate();
+frame.validate();
 
 // Spielstart
 
-	runGame();
+runGame();
 
 // Schließen des Spiels beim Ende des Spiels
 
-	frame.dispose();
+frame.dispose();
 }
 
 /**
@@ -201,10 +178,9 @@ private static void runGame() throws InterruptedException {
 		
 		Thread.sleep(gameSpeed);
 		
-		// Teste Bewegungsschritte der Schlange
+		// Teste den Bewegungsschritt der Schlange.
 		int x = snakeLoc[snakeIndex][0];
 		int y = snakeLoc[snakeIndex][1];
-		
 		switch(snakeDirection){
 		// Norden
 		case 0: 
@@ -276,52 +252,51 @@ iteration++;
 }
 	
 if(stillAlive && snakeLength>=MAX_Length) {
-	// Mittels diesem Befehl, wird ein kleines Fenster geoeffnet in dem
-	// der spezifizierte Text dargestellt wird.
-	// Durch Druecken auf den OK Button schliesst sich das Fenster dann wieder
-	// und das Programm laeuft weiter.
-	JOptionPane.showMessageDialog(mySnakeGame, "Gewonnen !!!\n"
-	+ "Du hast "+iteration+" Schritte gebraucht um \n"
-	+ "alle moeglichen " + foodEaten + " Punkte zu fressen.");	
-	} else {
-		JOptionPane.showMessageDialog(mySnakeGame, "Sorry - das war's!\n"
-				+ "Du hast "+iteration+" Schritte durchgehalten\n"
-				+ "und dabei " + foodEaten + " Punkte gefressen.");
-		}
+// Mittels diesem Befehl, wird ein kleines Fenster geoeffnet in dem
+// der spezifizierte Text dargestellt wird.
+// Durch Druecken auf den OK Button schliesst sich das Fenster dann wieder
+// und das Programm laeuft weiter.
+JOptionPane.showMessageDialog(mySnakeGame, "Gewonnen !!!\n"
++ "Du hast "+iteration+" Schritte gebraucht um \n"
++ "alle moeglichen " + foodEaten + " Punkte zu fressen.");
+}else{
+JOptionPane.showMessageDialog(mySnakeGame, "Sorry - das war's!\n"
++ "Du hast "+iteration+" Schritte durchgehalten\n"
++ "und dabei " + foodEaten + " Punkte gefressen.");
 }
-
+}
 private static int [][] expandSnake(int[][]oldSnake, int snakeIndex, int newSnakeLength){
-	for(int i=oldSnake.length; i<snakeLength; i++) {
-		snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] = 
-				snakeLoc[(snakeLoc.length+snakeIndex-oldSnake.length+1)%snakeLoc.length][0];
-				snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][1] =
-				snakeLoc[(snakeLoc.length+snakeIndex-oldSnake.length+1)%snakeLoc.length][1];
-				
-	}
-    return snakeLoc;
+for(int i=oldSnake.length; i<snakeLength; i++) {
+snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] = 
+snakeLoc[(snakeLoc.length+snakeIndexOldSnake.length+1)%snakeLoc.length][0];
+snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][1] =
+snakeLoc[(snakeLoc.length+snakeIndexOldSnake.length+1)%snakeLoc.length][1];
+}
+return snakeLoc;
 }
 
+/**
+* Setzt das Essen an eine neue Stelle.
+*/
 
-// Setzt Essen an neue Stelle.
-
-private static void resetFoodLocation() {
-	boolean check = false;
-	foodLoc[0] = (int)(Math.random() * numColumns);
-	foodLoc[1] = (int)(Math.random() * numRows);
-	if(!insideSnake(foodLoc[0], foodLoc[1]) )
-	check = true;
-	}
-
-//TODO Stelle sicher, dass das Essen nicht in die Schlange selber plaziert wird.
+private static void resetFoodLocation()
+{
+boolean check=false;
+foodLoc[0] = (int)(Math.random() * numColumns);
+foodLoc[1] = (int)(Math.random() * numRows);
+// TODO Stelle sicher, dass das Essen nicht in die Schlange selber plaziert wird.
+if(!insideSnake(foodLoc[0], foodLoc[1]) )
+check = true;
+}
+//insideSnake to check is food is not inside the Snake
 private static boolean insideSnake(int x, int y) {
-	for(int i=0; i<snakeLength; i++) {
-		if(x == snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] &&
-				y == snakeLoc[(snakeLoc.length+snakeIndex)%snakeLoc.length][1])
-				return true;
-	}
-	return false;
+for(int i=0; i<snakeLength; i++) {
+if(x == snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] &&
+y == snakeLoc[(snakeLoc.length+snakeIndex)%snakeLoc.length][1])
+return true;
 }
-
+return false;
+}
 /**
 * Konstruktor fuer ein Graphik-Objekt.
 * Benoetigen wir, um einen Key-Listener auf dieses JPanel kreieren zu koennen.
@@ -329,91 +304,95 @@ private static boolean insideSnake(int x, int y) {
 * JPanel Funktionalitaet kreiert, weil ja diese Klasse JPanel "erweitert"...
 * Wenn man das im Moment noch nicht so ganz versteht, dann ist das schon OK :-)
 */
-
-private MySnakeGame() {}
-
-// Hier wird der Spielbereich kreiert und als Objekt zurueckgeliefert.
-
-public static MySnakeGame initFullSnakeGamePanel() {
-	
-	// Reihen = Anzahl Reihen - 2 Rand 
-	// Vorsicht: Reihen bestimmen die Hoehe des Feldes NICHT die Breite
-	numRows = panelHeight/TILE_SIZE -2;
-	
-	// Spalten = Anzahl Spalten - 2 Rand
-	numColumns = panelWidth/TILE_SIZE -2;
-	gameAreaWidth = numColumns * TILE_SIZE;
-	gameAreaHeight = numRows * TILE_SIZE;
-	gameAreaLeft = (panelWidth - gameAreaWidth) / 2;
-	gameAreaTop = (panelHeight - gameAreaHeight) / 2;
-	snakeLoc = new int[MAX_Length][2];
-	snakeIndex=snakeLength-1;
-	
-	for (int l=0; l<=snakeIndex;l++){
-		snakeLoc[l][0] = numColumns/2;
-		snakeLoc[l][1] = numRows/2;
-		}
-	foodLoc = new int[2];
-	resetFoodLocation();
-	iteration = 0;
-	snakeDirection = 0;
-
-// Spielbereich wird aufgerufen
-
-MySnakeGame mySnakeG = new MySnakeGame();
-
-// Spielbereichsobjekt zurueck gegeben 
+private MySnakeGame()
+{
+// in diese Methode bitte nichts hinein programmieren :-)
+}
+/**
+* Initializes a graphics panel object of the desired width and height.
+* Bedeutet: Hier wird der Spielbereich kreiert und als Objekt zurueckgeliefert.
+*
+* @param width
+* @param height
+* @return The graphics JPanel object with the initialized game.
+*/
+public static MySnakeGame initFullSnakeGamePanel()
+{
+// Reihen = Anzahl Reihen minus zwei fuer den Rand
+// Vorsicht: Reihen bestimmen die Hoehe des Feldes NICHT die Breite!!!
+numRows = panelHeight/TILE_SIZE -2;
+// Spalten = Anzahl Spalten minus zwei fuer den Rand
+numColumns = panelWidth/TILE_SIZE -2;
+gameAreaWidth = numColumns * TILE_SIZE;
+gameAreaHeight = numRows * TILE_SIZE;
+gameAreaLeft = (panelWidth - gameAreaWidth) / 2;
+gameAreaTop = (panelHeight - gameAreaHeight) / 2;
+snakeLoc = new int[MAX_Length][2];
+snakeIndex=snakeLength-1;
+for (int l=0; l<=snakeIndex;l++){
+snakeLoc[l][0] = numColumns/2;
+snakeLoc[l][1] = numRows/2;
+}
+foodLoc = new int[2];
+resetFoodLocation();
+iteration = 0;
+snakeDirection = 0;
+// Hier wird jetzt noch der ganze Spielbereich - so zu sagen - ins Leben gerufen...
+// Bitte das einfach so stehen lassen!
+MySnakeGame mySnakeG = new MySnakeGame();//width, height);
+// Und nun wird noch Spielbereichsobjekt zurueck gegeben - bitte unbedingt so stehen lassen.
 return mySnakeG;
 
 }
 
 /**
 * Draws the game board into this Panel within the frame.
+* Diese Methode wird aufgerufen wenn diese Komponente -
+* naemlich dieses JPanel bzw. dieser Spielebereich -
+* sich neu aufbauen bzw. malen sollen.
+* Die Methode kann indirekt ueber den repaint() Befehl bzw. durch mySnakeGame.repaint()
+aufgerufen werden.
 */
-
 public void paintComponent(Graphics gg) {
-	
-	// gesamter Spielbereich wird "gemalt"
-	super.paintComponent(gg);
-	
-	// Ränder erstellt
-	paintGameArea(gg);
-	
-	// Esspunkte erstellt
-	paintFood(gg);
-	
-	// Schlange erstellt
-	paintSnake(gg);
-	}
-
+// Zunaechste muss der gesamte Bereich gemalt werden (bitte so stehen lassen).
+super.paintComponent(gg);
+// Dann werden die Raender gemalt.
+paintGameArea(gg);
+// Dann der Essenspunkt.
+paintFood(gg);
+// Dann die Schlange.
+paintSnake(gg);
+}
 /**
 * This method paints the game area and the border.
+*
+* @param g
 */
-
-public static void paintGameArea(Graphics g) {
-	g.setColor(borderColor);
-	g.fillRect(0, 0, panelWidth, panelHeight);
-	g.setColor(bgColor);
-	g.fillRect(gameAreaLeft, gameAreaTop, gameAreaWidth, gameAreaHeight);
-	}
-
+public static void paintGameArea(Graphics g)
+{
+g.setColor(borderColor);
+g.fillRect(0, 0, panelWidth, panelHeight);
+g.setColor(bgColor);
+g.fillRect(gameAreaLeft, gameAreaTop, gameAreaWidth, gameAreaHeight);
+}
 /**
 * This methods paints the food item to the graphics object.
+*
+* @param g
 */
-
-public static void paintFood(Graphics g) {
-	if(FoodIsGold)
-		g.setColor(goldFoodColor);
-	else g.setColor(foodColor);
-	g.fillRect(gameAreaLeft + foodLoc[0]*TILE_SIZE, gameAreaTop + foodLoc[1]*TILE_SIZE,
-			TILE_SIZE, TILE_SIZE);
-	}
-
+public static void paintFood(Graphics g)
+{
+if(FoodIsGold)g.setColor(goldFoodColor);
+else g.setColor(foodColor);
+g.fillRect(gameAreaLeft + foodLoc[0]*TILE_SIZE, gameAreaTop + foodLoc[1]*TILE_SIZE,
+TILE_SIZE, TILE_SIZE);
+}
 /**
 * This methods paints the snake into the game area
 * at its current location.
+*
+* @param g
 */
-
 public static void paintSnake(Graphics g) {
 	// "anmalen" des Körpers der Schlange
 	g.setColor(snakeBody);
