@@ -316,7 +316,7 @@ private static void resetFoodLocation() {
 private static boolean insideSnake(int x, int y) {
 	for(int i=0; i<snakeLength; i++) {
 		if(x == snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0] &&
-			y == snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][1])
+				y == snakeLoc[(snakeLoc.length+snakeIndex)%snakeLoc.length][1])
 				return true;
 	}
 	return false;
@@ -418,8 +418,8 @@ public static void paintSnake(Graphics g) {
 	// "anmalen" des Körpers der Schlange
 	g.setColor(snakeBody);
 	for(int i=1; i<snakeLength; i++) {
-		g.fillRect(gameAreaLeft + snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][0]*TILE_SIZE,
-				gameAreaTop + snakeLoc[(snakeLoc.length+snakeIndex-i)%snakeLoc.length][1]*TILE_SIZE,
+		g.fillRect(gameAreaLeft + snakeLoc[(snakeLoc.length+snakeIndex)%snakeLoc.length][0]*TILE_SIZE,
+				gameAreaTop + snakeLoc[(snakeLoc.length+snakeIndex)%snakeLoc.length][1]*TILE_SIZE,
 				TILE_SIZE, TILE_SIZE);				
 	}
 	
