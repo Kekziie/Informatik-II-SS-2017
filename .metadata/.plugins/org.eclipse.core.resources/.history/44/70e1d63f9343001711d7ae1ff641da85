@@ -11,8 +11,6 @@ public class Paperworks {
 		          b[number--] = number + 7;
 		   b[number] = -12;
 	}
-	}
 }
-
 
 

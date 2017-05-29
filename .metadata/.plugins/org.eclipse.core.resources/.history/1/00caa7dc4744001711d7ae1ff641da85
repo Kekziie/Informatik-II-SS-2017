@@ -95,7 +95,7 @@ public class Geheimtext {
 	return 0;
 	}
 
-	// e) Dekodierungsbuch
+	// e) 
 	public static char [] getDecodeBook(char[]codeBook){
 		char[] zeichen = getCharacterArray();
 		char[] decode = new char [codeBook.length];

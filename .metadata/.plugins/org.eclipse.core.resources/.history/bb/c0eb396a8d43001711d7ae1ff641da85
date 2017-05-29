@@ -10,9 +10,8 @@ public class Paperworks {
 		   while (number > 0) {
 		          b[number--] = number + 7;
 		   b[number] = -12;
-	}
+		   }
 	}
 }
-
 
 

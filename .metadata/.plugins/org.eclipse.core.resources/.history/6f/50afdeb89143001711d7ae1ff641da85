@@ -1,0 +1,20 @@
+package main;
+
+public class Paperworks {
+	
+
+	public static void main(String[] args) {
+		
+		double Lichtg = 299792458.0;
+		   double Lichtg2 = Lichtg * Lichtg;
+		   double[] energy;
+		   for ( int i = 1; i <= 10; i++ ) {
+		      double en = (double)i * Lichtg2;
+		      energy = new double[10];
+		      energy[i-1] = en;
+		   }
+		   System.out.println(energy[2]);
+	}
+}
+
+

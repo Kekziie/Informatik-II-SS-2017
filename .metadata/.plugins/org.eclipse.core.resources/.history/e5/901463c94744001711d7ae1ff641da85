@@ -4,10 +4,8 @@ public class Geheimtext {
 	
 	public static void main(String[] args) {
 		char [] zeichen= new char [95];
-		// einlesen des Eingabetextes
-		String eingabe = "aaa bbb CCC DDD"; 
-		// umwandeln String zu Char-Array
-		char[] inputArray = eingabe.toCharArray (); 
+		String eingabe = "aaa bbb CCC DDD"; // einlesen des Eingabetextes
+		char[] inputArray = eingabe.toCharArray (); // umwandeln String zu Char-Array
 		char[] codeBook = getRandomCodeBook();
 		char[] encodedArray = encode(inputArray, codeBook);
 		char[] decodeBook = getDecodeBook(codeBook);
@@ -27,10 +25,9 @@ public class Geheimtext {
 		System.out.println("done");
 
 	}
-	//Liefert ein Array mit allen druckbaren Zeichen
-	public static char[] getCharacterArray()					
 	
-	{															
+	public static char[] getCharacterArray()					//Liefert ein Array mit allen
+	{															//druckbaren Zeichen
 		char[] arr = new char[95];
 		for (int i= 0; i < arr.length; i++)
 		{
@@ -40,9 +37,9 @@ public class Geheimtext {
 		}
 		return arr;
 	}
-	//a) Liefert String mit allen ASCII-Zeichen des Array
-	 public static String toStringCharArray(char[] zeichen)		
-	 {															
+	
+	 public static String toStringCharArray(char[] zeichen)		//Liefert String mit allen
+	 {															//Zeichen des Array
 		 String ArrayString = "";
 		 for (int i = 0; i < zeichen.length; i++)
 		 {
@@ -51,9 +48,8 @@ public class Geheimtext {
 		 return ArrayString;
 	 }
 	 
-	//b) Bekommt ein Array und mischt dessen Elemente Random durch
-	 public static void shuffle (char[] zeichen)				 
-	 {															
+	 public static void shuffle (char[] zeichen)				//Bekommt ein Array und mischt
+	 {															//dessen Elemente Random durch
 		 int N = zeichen.length;
 		 for (int i = 0; i < (N - 1); i++)
 		 {
@@ -65,9 +61,8 @@ public class Geheimtext {
 		
 	 }
 	 
-	//c) Erstellt ein Char Array und mischt dieses durch = Codebook
-	 public static char[] getRandomCodeBook()					
-	 {															
+	 public static char[] getRandomCodeBook()					//Erstellt ein Char Array und
+	 {															//mischt dieses durch = Codebook
 		 char[] array2 = new char[95];
 		 array2 = getCharacterArray();
 		 shuffle(array2);
@@ -95,7 +90,6 @@ public class Geheimtext {
 	return 0;
 	}
 
-	// e) Dekodierungsbuch
 	public static char [] getDecodeBook(char[]codeBook){
 		char[] zeichen = getCharacterArray();
 		char[] decode = new char [codeBook.length];

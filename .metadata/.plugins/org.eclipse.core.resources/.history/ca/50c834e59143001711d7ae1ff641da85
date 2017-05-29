@@ -1,0 +1,20 @@
+package main;
+
+public class Paperworks {
+	
+
+	public static void main(String[] args) {
+		
+		int[] a = new int[10];
+	     int[] b = new int[10];
+	     int k = 0;
+	     for ( k = 0; k < 10; k++ )
+	     a[k] = k;
+	b[k] = k;
+	     if ( b[5] < 10 ) {
+	        a[5] = b[6];
+	}
+	}
+}
+
+
