@@ -82,7 +82,7 @@ public class MySnakeGame extends JPanel implements KeyListener{
 	private static int snakeIndex=0;
 	
 	//Max_Length of Snake before winning the game
-	private static int MAX_LENGTH=42;
+	private static int MAX_Length=42;
 	
 /**
 * The direction towards which the snake is heading.
@@ -190,7 +190,7 @@ private static void runGame() throws InterruptedException {
 	
 	// vermerkt Zusammenstoss 
 	boolean stillAlive = true; 
-	while(stillAlive && snakeLength < MAX_LENGTH) {
+	while(stillAlive && snakeLength < MAX_Length) {
 		
 		// Schleife läuft bis:
 		// 1. Zusammenstoß
@@ -244,9 +244,9 @@ if(snakeLoc[snakeIndex][0]==foodLoc[0] &&
 snakeLoc[snakeIndex][1]==foodLoc[1]) {
 	
 	if(FoodIsGold){
-		if(snakeLength>=MAX_LENGTH){
+		if(snakeLength>=MAX_Length){
 			
-			snakeLength=MAX_LENGTH;
+			snakeLength=MAX_Length;
 			FoodIsGold=false;
 			foodEaten+=10;
 			
@@ -275,7 +275,7 @@ iteration++;
 
 }
 	
-if(stillAlive && snakeLength>=MAX_LENGTH) {
+if(stillAlive && snakeLength>=MAX_Length) {
 	// Mittels diesem Befehl, wird ein kleines Fenster geoeffnet in dem
 	// der spezifizierte Text dargestellt wird.
 	// Durch Druecken auf den OK Button schliesst sich das Fenster dann wieder
@@ -346,7 +346,7 @@ public static MySnakeGame initFullSnakeGamePanel() {
 	gameAreaHeight = numRows * TILE_SIZE;
 	gameAreaLeft = (panelWidth - gameAreaWidth) / 2;
 	gameAreaTop = (panelHeight - gameAreaHeight) / 2;
-	snakeLoc = new int[MAX_LENGTH][2];
+	snakeLoc = new int[MAX_Length][2];
 	snakeIndex=snakeLength-1;
 	
 	for (int l=0; l<=snakeIndex;l++){
