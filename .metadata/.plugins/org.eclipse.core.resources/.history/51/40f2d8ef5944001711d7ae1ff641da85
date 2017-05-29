@@ -284,7 +284,7 @@ if(stillAlive && snakeLength>=MAX_LENGTH) {
 	+ "Du hast "+iteration+" Schritte gebraucht um \n"
 	+ "alle moeglichen " + foodEaten + " Punkte zu fressen.");	
 	} else {
-		JOptionPane.showMessageDialog(mySnakeGame, "Game Over!!!\n"
+		JOptionPane.showMessageDialog(mySnakeGame, "Sorry - das war's!\n"
 				+ "Du hast "+iteration+" Schritte durchgehalten\n"
 				+ "und dabei " + foodEaten + " Punkte gefressen.");
 		}
