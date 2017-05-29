@@ -106,10 +106,10 @@ public class MySnakeGame extends JPanel implements KeyListener{
 */
         private static int[] foodLoc;
         
-        // ueberprueft, ob Essen vergoldet
+        // Ã¼berprÃ¼ft, ob Essen vergoldet
         private static boolean FoodIsGold = false;
         
-        // Wahrscheinlichkeit fuer Gold-Esspunkt
+        // Wahrscheinlichkeit fÃ¼r Goldesspunkt
         private final static double Food_gold = .25;
         
 /**
@@ -175,7 +175,7 @@ public class MySnakeGame extends JPanel implements KeyListener{
 
         runGame();
 
-// Schliessen des Spiels beim Ende des Spiels
+// SchlieÃŸen des Spiels beim Ende des Spiels
 
         frame.dispose();
 }
@@ -192,16 +192,16 @@ private static void runGame() throws InterruptedException {
         boolean stillAlive = true; 
         while(stillAlive && snakeLength < MAX_LENGTH) {
                 
-                // Schleife laeuft bis:
+                // Schleife lÃ¤uft bis:
                 // 1. ZusammenstoÃ?
-                // 2. max. Laenge
+                // 2. max. LÃ¤nge
                 mySnakeGame.repaint();
                 
-                // Warten bis es Zeit ist, fuer den naechsten Schritt ist
+                // Warten bis es Zeit ist fuer den naechsten Schritt ist.
                 
                 Thread.sleep(gameSpeed);
                 
-                // Bewegungsschritte der Schlange
+                // Teste Bewegungsschritte der Schlange
                 int x = snakeLoc[snakeIndex][0];
                 int y = snakeLoc[snakeIndex][1];
                 
@@ -273,9 +273,10 @@ iteration++;
 }
         
 if(stillAlive && snakeLength>=MAX_LENGTH) {
-        // Mittels diesem Befehl, wird ein kleines Fenster mit Text geoeffnet
-        // Druecken auf OK Button schliesst das Fenster 
-        // Programm laeuft weiter.
+        // Mittels diesem Befehl, wird ein kleines Fenster geoeffnet in dem
+        // der spezifizierte Text dargestellt wird.
+        // Durch Druecken auf den OK Button schliesst sich das Fenster dann wieder
+        // und das Programm laeuft weiter.
         JOptionPane.showMessageDialog(mySnakeGame, "Gewonnen !!!\n"
         + "Du hast "+iteration+" Schritte gebraucht um \n"
         + "alle moeglichen " + foodEaten + " Punkte zu fressen.");        
@@ -305,13 +306,13 @@ private static int[][] expandSnake(int[][]oldSnake, int snakeIndex, int newSnake
 
 private static void resetFoodLocation() {
         do {
-        	//TODO Stelle sicher, dass das Essen nicht in die Schlange selber plaziert wird.
-            foodLoc[0] = (int)(Math.random() * numColumns);
-            foodLoc[1] = (int)(Math.random() * numRows);
+                foodLoc[0] = (int)(Math.random() * numColumns);
+                foodLoc[1] = (int)(Math.random() * numRows);
         } while(insideSnake(foodLoc[0], foodLoc[1]));
         
         }
 
+//TODO Stelle sicher, dass das Essen nicht in die Schlange selber plaziert wird.
 private static boolean insideSnake(int x, int y) {
         for(int i=0; i<snakeLength; i++) {
                 if(x == snakeLoc[i][0] &&
@@ -375,7 +376,7 @@ public void paintComponent(Graphics gg) {
         // gesamter Spielbereich wird "gemalt"
         super.paintComponent(gg);
         
-        // Raender erstellt
+        // RÃ¤nder erstellt
         paintGameArea(gg);
         
         // Esspunkte erstellt
