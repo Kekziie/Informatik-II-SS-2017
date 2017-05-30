@@ -110,7 +110,7 @@ public class MySnakeGame extends JPanel implements KeyListener{
         private static boolean FoodIsGold = false;
         
         // Wahrscheinlichkeit fuer Gold-Esspunkt
-        private final static double GOLDFOOD = 0.25;
+        private final static double Food_gold = .25;
         
 /**
 * Number of iterations played in the game.
@@ -263,7 +263,7 @@ snakeLoc[snakeIndex][1]==foodLoc[1]) {
                         snakeLoc = expandSnake(snakeLoc,snakeIndex,(snakeLength));
                         
                 }
-        if(Math.random() < GOLDFOOD)
+        if(Math.random() < Food_gold)
                 FoodIsGold=true;
                 resetFoodLocation();
 }
