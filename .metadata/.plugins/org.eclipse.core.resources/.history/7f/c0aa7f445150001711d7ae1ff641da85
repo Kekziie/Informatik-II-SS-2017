@@ -415,7 +415,7 @@ public static void paintFood(Graphics g) {
 
 public static void paintSnake(Graphics g) {
 	
-        // "anmalen" des Koerpers der Schlange
+        // "anmalen" des KÃ¶rpers der Schlange
         g.setColor(snakeBody);
         for(int i=0; i<snakeLength; i++) {
         	
