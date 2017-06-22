@@ -1,0 +1,18 @@
+package race;
+
+public class Motor {
+	
+	private static double weight = 10;
+	private static double power = 10;
+	
+    public static double getWeight() {
+		
+		return weight;
+	}
+    
+    public static double getPower() {
+		
+		return power;
+	}
+
+}

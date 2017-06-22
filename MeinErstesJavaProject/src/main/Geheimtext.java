@@ -3,7 +3,7 @@ package main;
 public class Geheimtext {
 	
 	public static void main(String[] args) {
-		char [] zeichen= new char [95];
+		char [] zeichen = new char [95];
 		// einlesen des Eingabetextes
 		String eingabe = "aaa bbb CCC DDD"; 
 		// umwandeln String zu Char-Array

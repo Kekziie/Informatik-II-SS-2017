@@ -1,0 +1,24 @@
+package race;
+
+public class Tires {
+	
+	private static double weight = 10;
+	private static double diameter = 10;
+	private static double pi = 3.1415;
+	
+	public static double getWeight() {
+		
+		return weight;
+	}
+	
+	public static double getDiameter() {
+		
+		return diameter;
+	}
+	
+	public static double getCircumference() {
+		
+		return diameter * pi;
+	}
+
+}
