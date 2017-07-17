@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import info2.ueb8.gamepackage.GridGameInterface;
 import info2.ueb8.gamepackage.gridgames.ColorAreaGridGame;
 import info2.ueb8.gamepackage.gridgames.FraktalGenerator;
+import info2.ueb8.gamepackage.gridgames.Minesweeper;
 import info2.ueb8.gamepackage.gridgames.SnakeGridGame;
 import info2.ueb8.gamepackage.gridgames.TowersOfHanoi;
 
@@ -35,7 +36,7 @@ public class MainGameFrame implements ActionListener {
 	 * one!
 	 */
 	private enum ImplementedGames {
-		ColorAreaGridGame, SnakeGridGame
+		ColorAreaGridGame, SnakeGridGame, Minesweeper
 	};
 
 	/**
@@ -191,6 +192,10 @@ public class MainGameFrame implements ActionListener {
 				initFullGamePanel(panelWidth, panelHeight, SnakeGridGame.initTileSize, SnakeGridGame.initTileSize);
 				myCurrentGame = new SnakeGridGame(gameFrame, thePanel, gameArea, controlArea);
 				break;
+			case Minesweeper:
+				initFullGamePanel(panelWidth, panelHeight, Minesweeper.TileSize, Minesweeper.TileSize);
+				myCurrentGame = new Minesweeper(thePanel, gameArea, controlArea);
+				break;	
 			}
 		} else {
 			switch (whichAlg) {

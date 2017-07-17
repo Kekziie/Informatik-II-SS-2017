@@ -41,7 +41,7 @@ public class FraktalGenerator implements GridGameInterface, MouseListener {
 		 */
 		public int[] startKey;
 	
-	    int sleepTime = 50;
+	    int sleepTime = 1;
 
 	    private Rectangle gameArea;
 	    private Rectangle controlArea;
