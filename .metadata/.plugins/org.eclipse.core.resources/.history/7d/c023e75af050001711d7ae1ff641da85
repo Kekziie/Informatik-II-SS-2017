@@ -1,8 +1,0 @@
-package race;
-
-public class Battery {
-	
-	private static double capacity = 10;
-	private static double power = 10;
-
-}
